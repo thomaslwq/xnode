@@ -5,9 +5,10 @@ var route = require("./route");
 var config = require("./config");
 var debug = config.debug;
 
+
 http.createServer(function(request,response){
 
-	var postData = '';
+	var postData = 'hello';
 	request.setEncoding('utf-8');
 	// //获取post数据，post请求比较重，所以nodejs将Post数据分成许多小块，然后触发事件
 	// //把数据传递给小块

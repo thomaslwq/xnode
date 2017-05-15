@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <title>set content Type</title> 
+  <meta charset="utf-8"/>
+  <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+</head>
+<body>
+<div id="result"></div>
+<script>
+// $.ajaxSetup({
+//   contents: {
+//     mycustomtype: /mycustomtype/
+//   },
+//   converters: {
+//     "text mycustomtype":  function( result ) {
+//       // Do stuff
+//       return "自定义返回数据:"+result;
+//     },
+//     "text json":function(result){
+//       return result;
+//     },
+//     "text html":function(result){
+//       return result;
+//     }
+//   }
+// });
+$.ajax({
+  url:"/text_demo",
+  success:function(response,textStatus,jqXHR){
+    
+    console.log(jqXHR&&jqXHR.getResponseHeader("content-type"));
+    
+    $('#result').html(response);
+  },
+
+  // accepts: {
+  //   mycustomtype: /mycustomtype/
+  // },
+ 
+  // // Instructions for how to deserialize a `mycustomtype`
+  // converters: {
+  //   'text mycustomtype': function(result) {
+  //     // Do Stuff
+  //     return console.log("自定义类型"+result);
+  //   }
+  // },
+ 
+  // // Expect a `mycustomtype` back from server
+   // dataType: 'mycustomtype'
+});
+</script>
+</body>
+</html>
